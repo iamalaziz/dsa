@@ -81,15 +81,24 @@ class SinglyLinkedList {
         }
         return current
     }
+    set(index, val){
+        let node = this.get(index)
+        if(node){
+            node.val = val
+            return true
+        }
+        return false
+    }
 }
 const n = new ListNode(5);
 const list = new SinglyLinkedList();
 list.push(5);
 list.push(6);
 list.push(7);
+list.push(8);
 list.pop();
 list.shift();
 list.unshift(9);
-
-const list2 = new SinglyLinkedList([1,2,3])
-console.log(list2);
+list.set(1, 11)
+// const list2 = new SinglyLinkedList([1,2,3])
+console.log(list);
