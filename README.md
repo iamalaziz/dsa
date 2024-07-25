@@ -10,3 +10,12 @@
     - insert
     - remove
     - reverse
+
+- Doubly Linked List
+- Recursion
+- Tree
+    - insert, find, remove
+    - tree traversal: BFS, DFS
+    - DFS: pre-order, in-order, post-order
+- Sort
+    - Merge Sort
