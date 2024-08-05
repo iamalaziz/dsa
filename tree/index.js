@@ -84,4 +84,40 @@ const BFS = (root) => {
     return visited;
 };
 
-console.log(BFS(tree.root));
+const DFSPreOrder = (root) => {
+    const data = []
+    function traverse(node){
+        data.push(node.val)
+        if(node.left) traverse(node.left)
+        if(node.right) traverse(node.right)
+    }
+    traverse(root)
+    return data
+}
+
+const DFSPostOrder = (root) => {
+    const data = []
+    function traverse(node){
+        if(node.left) traverse(node.left)
+        if(node.right) traverse(node.right)
+        data.push(node.val)
+    }
+    traverse(root)
+    return data
+}
+
+const DFSInOrder = (root) => {
+    const data = []
+    function traverse(node){
+        if(node.left) traverse(node.left)
+        data.push(node.val)
+        if(node.right) traverse(node.right)
+    }
+    traverse(root)
+    return data
+}
+
+// console.log(BFS(tree.root));
+// console.log(DFSPreOrder(tree.root));
+// console.log(DFSPostOrder(tree.root));
+console.log(DFSInOrder(tree.root));
