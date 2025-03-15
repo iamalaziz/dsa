@@ -1,6 +1,5 @@
 /* https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/description/ */
 
-
 var sortedArrayToBST = function (nums) {
     function helper(start, end) {
         if (start > end) {

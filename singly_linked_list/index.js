@@ -128,15 +128,15 @@ class SinglyLinkedList {
     reverse() {
         let node = this.head;
         this.head = this.tail;
-        this.tail = node
+        this.tail = node;
         let prev = null;
         for (let i = 0; i < this.size; i++) {
-            let next = node.next
-            node.next = prev
-            prev = node
-            node = next
+            let next = node.next;
+            node.next = prev;
+            prev = node;
+            node = next;
         }
-         return this
+        return this;
     }
     print() {
         let arr = [];
@@ -161,6 +161,6 @@ list.set(1, 11);
 list.insert(12, 3);
 list.remove(1);
 list.reverse();
-list.print()
+list.print();
 // const list2 = new SinglyLinkedList([1,2,3])
 console.log(list);

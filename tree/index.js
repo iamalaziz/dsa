@@ -85,37 +85,37 @@ const BFS = (root) => {
 };
 
 const DFSPreOrder = (root) => {
-    const data = []
-    function traverse(node){
-        data.push(node.val)
-        if(node.left) traverse(node.left)
-        if(node.right) traverse(node.right)
+    const data = [];
+    function traverse(node) {
+        data.push(node.val);
+        if (node.left) traverse(node.left);
+        if (node.right) traverse(node.right);
     }
-    traverse(root)
-    return data
-}
+    traverse(root);
+    return data;
+};
 
 const DFSPostOrder = (root) => {
-    const data = []
-    function traverse(node){
-        if(node.left) traverse(node.left)
-        if(node.right) traverse(node.right)
-        data.push(node.val)
+    const data = [];
+    function traverse(node) {
+        if (node.left) traverse(node.left);
+        if (node.right) traverse(node.right);
+        data.push(node.val);
     }
-    traverse(root)
-    return data
-}
+    traverse(root);
+    return data;
+};
 
 const DFSInOrder = (root) => {
-    const data = []
-    function traverse(node){
-        if(node.left) traverse(node.left)
-        data.push(node.val)
-        if(node.right) traverse(node.right)
+    const data = [];
+    function traverse(node) {
+        if (node.left) traverse(node.left);
+        data.push(node.val);
+        if (node.right) traverse(node.right);
     }
-    traverse(root)
-    return data
-}
+    traverse(root);
+    return data;
+};
 
 // console.log(BFS(tree.root));
 // console.log(DFSPreOrder(tree.root));

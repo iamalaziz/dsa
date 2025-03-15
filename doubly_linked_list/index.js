@@ -1,5 +1,3 @@
-class Node{
-    constructor(val){
-        
-    }
+class Node {
+    constructor(val) {}
 }
