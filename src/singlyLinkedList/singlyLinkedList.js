@@ -1,3 +1,8 @@
+/**
+ * ListNode
+ *
+ * @param {any} val - The value of the node
+ */
 class ListNode {
     constructor(val) {
         this.val = val;
@@ -5,23 +10,40 @@ class ListNode {
     }
 }
 
+/**
+ * SinglyLinkedList
+ *
+ * @param {Array} array - The array of values to initialize the list with
+ */
 class SinglyLinkedList {
-    constructor(arr) {
+    constructor(array) {
         this.head = null;
         this.tail = null;
         this.size = 0;
 
-        if (Array.isArray(arr) && arr.length > 0) {
-            arr.forEach((element) => {
+        if (Array.isArray(array) && array.length > 0) {
+            array.forEach((element) => {
                 this.unshift(element);
             });
         }
     }
+    /**
+     * Check if the list is empty
+     *
+     * @returns {boolean} - True if the list is empty, false otherwise
+     */
     isEmpty() {
         return this.size === 0;
     }
-    push(val) {
-        let newNode = new ListNode(val);
+
+    /**
+     * Add a new node to the end of the list
+     *
+     * @param {any} value - The value of the node
+     * @returns {SinglyLinkedList} - The list itself
+     */
+    push(value) {
+        let newNode = new ListNode(value);
         if (!this.head) {
             this.head = newNode;
             this.tail = this.head;
@@ -32,7 +54,12 @@ class SinglyLinkedList {
         this.size++;
         return this;
     }
-    // remove the node from the end
+
+    /**
+     * Remove the last node from the list
+     *
+     * @returns {any} - The value of the removed node
+     */
     pop() {
         if (!this.head) return undefined;
         let current = this.head;
@@ -50,7 +77,12 @@ class SinglyLinkedList {
         }
         return current;
     }
-    // remove the node from the beginning
+
+    /**
+     * Remove the first node from the list
+     *
+     * @returns {any} - The value of the removed node
+     */
     shift() {
         if (!this.head) return undefined;
         let secondNode = this.head.next;
@@ -61,9 +93,15 @@ class SinglyLinkedList {
         }
         return secondNode;
     }
-    // add a new node to the beginning
-    unshift(val) {
-        let newNode = new ListNode(val);
+
+    /**
+     * Add a new node to the beginning of the list
+     *
+     * @param {any} value - The value of the node
+     * @returns {SinglyLinkedList} - The list itself
+     */
+    unshift(value) {
+        let newNode = new ListNode(value);
         if (!this.head) {
             this.head = newNode;
             this.tail = this.head;
@@ -74,6 +112,13 @@ class SinglyLinkedList {
         this.size++;
         return this;
     }
+
+    /**
+     * Get the node at a specific index
+     *
+     * @param {number} index - The index of the node
+     * @returns {ListNode} - The node at the specified index
+     */
     get(index) {
         if (index < 0 || index >= this.size) return null;
         let counter = 0;
@@ -84,6 +129,14 @@ class SinglyLinkedList {
         }
         return current;
     }
+
+    /**
+     * Set the value of a node at a specific index
+     *
+     * @param {number} index - The index of the node
+     * @param {any} value - The value of the node
+     * @returns {boolean} - True if the value was set, false otherwise
+     */
     set(index, val) {
         let node = this.get(index);
         if (node) {
@@ -92,7 +145,14 @@ class SinglyLinkedList {
         }
         return false;
     }
-    // add a node in into certain position
+
+    /**
+     * Add a node in into certain position
+     *
+     * @param {number} index - The index of the node
+     * @param {any} value - The value of the node
+     * @returns {boolean} - True if the node was added, false otherwise
+     */
     insert(index, value) {
         if (index < 0 || index >= this.size) return false;
 
@@ -114,7 +174,13 @@ class SinglyLinkedList {
         this.size++;
         return true;
     }
-    // remove a node
+
+    /**
+     * Remove a node from the list
+     *
+     * @param {number} index - The index of the node
+     * @returns {any} - The value of the removed node
+     */
     remove(index) {
         if (index < 0 || index >= this.size) return undefined;
         if (index === 0) return this.shift();
@@ -125,6 +191,12 @@ class SinglyLinkedList {
         this.size--;
         return curr;
     }
+
+    /**
+     * Reverse the list
+     *
+     * @returns {SinglyLinkedList} - The reversed list
+     */
     reverse() {
         let node = this.head;
         this.head = this.tail;
@@ -138,6 +210,10 @@ class SinglyLinkedList {
         }
         return this;
     }
+
+    /**
+     * Print the linked list as an array
+     */
     print() {
         let arr = [];
         let curr = this.head;
@@ -148,8 +224,12 @@ class SinglyLinkedList {
         console.log(arr);
     }
 }
+
+// test
+
 const n = new ListNode(5);
 const list = new SinglyLinkedList();
+
 list.push(5);
 list.push(6);
 list.push(7);
@@ -162,5 +242,7 @@ list.insert(12, 3);
 list.remove(1);
 list.reverse();
 list.print();
+
 // const list2 = new SinglyLinkedList([1,2,3])
+
 console.log(list);

@@ -1,3 +1,8 @@
+/**
+ * Node class for the binary search tree
+ *
+ * @param {any} val - The value of the node
+ */
 class Node {
     constructor(val) {
         this.val = val;
@@ -6,11 +11,22 @@ class Node {
     }
 }
 
+/**
+ * Binary search tree class
+ *
+ * @param {Node} root - The root node of the tree
+ */
 class BinarySearchTree {
     constructor() {
         this.root = null;
     }
 
+    /**
+     * Insert a new node into the tree
+     *
+     * @param {number} value - The value of the node
+     * @returns {BinarySearchTree} - The tree itself
+     */
     insert(value) {
         if (!this.root) this.root = new Node(value);
         const newNode = new Node(value);
@@ -33,6 +49,12 @@ class BinarySearchTree {
         }
     }
 
+    /**
+     * Find a node in the tree
+     *
+     * @param {number} value - The value of the node
+     * @returns {Node} - The node itself
+     */
     find(value) {
         if (this.root == null) return false;
         if (this.root.val === value) return true;
@@ -54,6 +76,8 @@ class BinarySearchTree {
     }
 }
 
+// test
+
 let tree = new BinarySearchTree();
 tree.insert(10);
 tree.insert(15);
@@ -62,62 +86,4 @@ tree.insert(9);
 tree.insert(8);
 tree.insert(6);
 
-/*
-        10
-      7         15
-   6    9
-      8
-*/
-const BFS = (root) => {
-    if (!root) return [];
-
-    let queue = [root];
-    let visited = [];
-
-    while (queue.length) {
-        let node = queue.shift();
-        visited.push(node.val);
-        if (node.left) queue.push(node.left);
-        if (node.right) queue.push(node.right);
-    }
-
-    return visited;
-};
-
-const DFSPreOrder = (root) => {
-    const data = [];
-    function traverse(node) {
-        data.push(node.val);
-        if (node.left) traverse(node.left);
-        if (node.right) traverse(node.right);
-    }
-    traverse(root);
-    return data;
-};
-
-const DFSPostOrder = (root) => {
-    const data = [];
-    function traverse(node) {
-        if (node.left) traverse(node.left);
-        if (node.right) traverse(node.right);
-        data.push(node.val);
-    }
-    traverse(root);
-    return data;
-};
-
-const DFSInOrder = (root) => {
-    const data = [];
-    function traverse(node) {
-        if (node.left) traverse(node.left);
-        data.push(node.val);
-        if (node.right) traverse(node.right);
-    }
-    traverse(root);
-    return data;
-};
-
-// console.log(BFS(tree.root));
-// console.log(DFSPreOrder(tree.root));
-// console.log(DFSPostOrder(tree.root));
-console.log(DFSInOrder(tree.root));
+console.log('tree:', tree);
