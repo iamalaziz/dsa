@@ -1,4 +1,4 @@
-# javascript-data-structures-and-algorithms
+### Data Structures and Algorithms
 
 - Singly Linked List methods:
     - push
@@ -18,4 +18,11 @@
     - tree traversal: BFS, DFS
     - DFS: pre-order, in-order, post-order
 - Sort
+    - Bubble sort
+    - Selection sort
+    - Insertion sort
     - Merge Sort
+    - Quick sort
+    - Radix sort
+    - Bucket sort
+    - Counting sort
